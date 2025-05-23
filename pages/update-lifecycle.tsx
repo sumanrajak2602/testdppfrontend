@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const UpdateLifecyclePage = () => {
@@ -9,13 +9,24 @@ const UpdateLifecyclePage = () => {
   const [file, setFile] = useState<File | null>(null);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState<string | null>(null);
 
-  const token = localStorage.getItem('token');
+  // Get token only on client side
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedToken = localStorage.getItem('token');
+      setToken(savedToken);
+    }
+  }, []);
 
   const handleProductIdSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!token) {
       setMessage('❌ You must be logged in.');
+      return;
+    }
+    if (!productId.trim()) {
+      setMessage('❌ Product ID cannot be empty.');
       return;
     }
     setSubmitted(true);
@@ -25,6 +36,10 @@ const UpdateLifecyclePage = () => {
   const handleLifecycleSubmit = async () => {
     if (!productId || !event || !actor) {
       setMessage('❌ All fields are required.');
+      return;
+    }
+    if (!token) {
+      setMessage('❌ You must be logged in.');
       return;
     }
 
@@ -75,7 +90,10 @@ const UpdateLifecyclePage = () => {
             onChange={(e) => setProductId(e.target.value)}
             className="w-full p-2 border rounded mb-4"
           />
-          <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+          >
             Proceed
           </button>
         </form>
@@ -116,7 +134,7 @@ const UpdateLifecyclePage = () => {
           <button
             onClick={handleLifecycleSubmit}
             disabled={loading}
-            className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+            className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 disabled:opacity-50"
           >
             {loading ? 'Submitting...' : 'Add Lifecycle Event'}
           </button>
