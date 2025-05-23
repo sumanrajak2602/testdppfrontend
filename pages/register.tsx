@@ -13,7 +13,7 @@ const RegisterPage = () => {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/users/register', form);
+      const res = await axios.post('https://testdpp-n1un945ra-suman-rajaks-projects.vercel.app/api/users/register', form);
       setMessage('✅ Registered successfully. Redirecting to login...');
       setTimeout(() => router.push('/login'), 2000);
     } catch (err) {

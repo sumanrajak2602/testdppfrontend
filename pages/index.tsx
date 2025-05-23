@@ -28,7 +28,7 @@
 //         },
 //       };
 
-//       const res = await axios.post('http://localhost:5000/api/dpp', formData, config);
+//       const res = await axios.post('https://testdpp-n1un945ra-suman-rajaks-projects.vercel.app/api/dpp', formData, config);
 
 //       setMessage(`✅ DPP Created: ${res.data.productId}`);
 //     } catch (err) {
@@ -81,7 +81,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchDPPs = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/dpp');
+        const res = await axios.get('https://testdpp-n1un945ra-suman-rajaks-projects.vercel.app/api/dpp');
         setDpps(res.data);
       } catch (err: any) {
         console.error(err);

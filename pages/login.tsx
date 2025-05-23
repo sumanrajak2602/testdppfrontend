@@ -14,7 +14,7 @@ export default function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/users/login', form);
+      const res = await axios.post('https://testdpp-n1un945ra-suman-rajaks-projects.vercel.app/api/users/login', form);
       const { token } = res.data;
 
       localStorage.setItem('token', token);

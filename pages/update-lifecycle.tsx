@@ -60,7 +60,7 @@ const UpdateLifecyclePage = () => {
       };
 
       const res = await axios.patch(
-        `http://localhost:5000/api/dpp/${productId.trim()}/lifecycle`,
+        `https://testdpp-n1un945ra-suman-rajaks-projects.vercel.app/api/dpp/${productId.trim()}/lifecycle`,
         formData,
         config
       );
