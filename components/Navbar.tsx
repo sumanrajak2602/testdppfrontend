@@ -26,6 +26,7 @@ export default function Navbar() {
         <>
           <Link href="/create-dpp">Create DPP</Link>
           <Link href="/update-lifecycle">Update Lifecycle</Link>
+          <Link href="/events">Product Events</Link>
           <button onClick={handleLogout} className="text-red-500">Logout</button>
         </>
       )}
