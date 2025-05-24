@@ -20,7 +20,8 @@ export default function LoginPage() {
 
       localStorage.setItem('token', token);
       setMessage('✅ Login successful');
-      router.push('/create-dpp'); // Redirect after login
+      //router.push('/create-dpp'); // Redirect after login
+      window.location.href = '/create-dpp';
     } catch (err) {
       console.error(err);
       setMessage('❌ Login failed');
