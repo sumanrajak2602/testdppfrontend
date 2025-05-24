@@ -16,6 +16,7 @@ export default function LoginPage() {
     try {
       const res = await axios.post('https://testdpp.vercel.app/api/users/login', form);
       const { token } = res.data;
+      console.log('Received token:', token); // ✅ Check that token is actually being received
 
       localStorage.setItem('token', token);
       setMessage('✅ Login successful');
