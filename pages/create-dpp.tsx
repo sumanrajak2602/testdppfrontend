@@ -65,7 +65,9 @@ const CreateDPPPage = () => {
         }
       };
       const res = await axios.post('https://testdpp.vercel.app/api/dpp', formData, config);
-      setMessage(`✅ DPP Created: ${res.data.productId}`);
+      const { productId, transactionHash } = res.data;
+      setMessage(`✅ DPP Created: ${productId}\n🔗 Blockchain Tx: ${transactionHash}`);
+    //  setMessage(`✅ DPP Created: ${res.data.productId}`);
     } catch (err) {
       console.error(err);
       setMessage('❌ Error creating DPP');

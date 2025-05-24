@@ -66,6 +66,8 @@ const UpdateLifecyclePage = () => {
       );
 
       setMessage('✅ Lifecycle event added successfully.');
+      const { transactionHash } = res.data;
+      setMessage(`✅ Lifecycle event added successfully.\n🔗 Tx: ${transactionHash}`);
       setEvent('');
       setActor('');
       setFile(null);
