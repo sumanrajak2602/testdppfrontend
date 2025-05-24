@@ -28,7 +28,7 @@ const EventsPage = () => {
 
   useEffect(() => {
     if (!productId) return;
-    axios.get(`https://testdpp-5v4q40hlr-suman-rajaks-projects.vercel.app/api/dpp/${productId}`)
+    axios.get(`https://testdpp.vercel.app/api/dpp/${productId}`)
       .then(res => setDpp(res.data))
       .catch(err => setError('Failed to fetch DPP data'));
   }, [productId]);

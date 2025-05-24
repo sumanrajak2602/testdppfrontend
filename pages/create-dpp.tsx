@@ -64,7 +64,7 @@ const CreateDPPPage = () => {
           'Content-Type': 'multipart/form-data'
         }
       };
-      const res = await axios.post('https://testdpp-5v4q40hlr-suman-rajaks-projects.vercel.app/api/dpp', formData, config);
+      const res = await axios.post('https://testdpp.vercel.app/api/dpp', formData, config);
       setMessage(`✅ DPP Created: ${res.data.productId}`);
     } catch (err) {
       console.error(err);
