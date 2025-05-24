@@ -15,10 +15,7 @@ const RegisterPage = () => {
     try {
       const res = await axios.post(
         'https://testdpp.vercel.app/api/users/register',
-        form,
-        {
-          withCredentials: true // 👈 enables sending cookies or auth headers
-        }
+        form
       );
       setMessage('✅ Registered successfully. Redirecting to login...');
       setTimeout(() => router.push('/login'), 2000);
