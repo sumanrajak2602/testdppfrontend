@@ -175,7 +175,24 @@ const CreateDPPPage = () => {
         </button>
       </div>
 
-      {message && <p className="mt-4 text-center text-sm">{message}</p>}
+      {message && (
+  <div className="mt-4 text-center text-sm whitespace-pre-line">
+    {message}
+    {message.includes('Blockchain Tx') && (
+      <div className="mt-2">
+        <a
+          href={`https://sepolia.etherscan.io/tx/${message.split('Blockchain Tx: ')[1]}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline"
+        >
+          🔍 View Transaction on Etherscan
+        </a>
+      </div>
+    )}
+  </div>
+)}
+
     </div>
   );
 };

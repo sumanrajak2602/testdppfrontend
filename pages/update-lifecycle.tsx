@@ -143,7 +143,24 @@ const UpdateLifecyclePage = () => {
         </>
       )}
 
-      {message && <p className="mt-4 text-center text-sm text-gray-700">{message}</p>}
+      {message && (
+  <div className="mt-4 text-center text-sm text-gray-700 whitespace-pre-line">
+    {message}
+    {message.includes('Tx:') && (
+      <div className="mt-2">
+        <a
+          href={`https://sepolia.etherscan.io//tx/${message.split('Tx: ')[1]}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline"
+        >
+          🔍 View Transaction on Etherscan
+        </a>
+      </div>
+    )}
+  </div>
+)}
+
     </div>
   );
 };
