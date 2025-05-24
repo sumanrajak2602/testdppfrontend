@@ -154,7 +154,7 @@ const UpdateLifecyclePage = () => {
           rel="noopener noreferrer"
           className="text-blue-600 underline"
         >
-          🔍 View Transaction on Etherscan
+          🔍 View Transaction on Sepolia
         </a>
       </div>
     )}
