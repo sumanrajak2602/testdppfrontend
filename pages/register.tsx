@@ -13,13 +13,21 @@ const RegisterPage = () => {
 
   const handleRegister = async () => {
     try {
-      const res = await axios.post('https://testdpp.vercel.app/api/users/register', form);
+      const res = await axios.post(
+        'https://testdpp.vercel.app/api/users/register',
+        form,
+        {
+          withCredentials: true // 👈 enables sending cookies or auth headers
+        }
+      );
       setMessage('✅ Registered successfully. Redirecting to login...');
       setTimeout(() => router.push('/login'), 2000);
     } catch (err) {
+      console.error(err);
       setMessage('❌ Registration failed');
     }
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
